@@ -1,0 +1,34 @@
+remake:
+  - world: "event_world"
+    dimension: "overworld"      # overworld, the_nether, the_end のいずれか
+    schedule:
+      type: "weekly"
+      day_of_week: "Sunday"
+      time: "03:00"
+    method:
+      type: "copy"              # copy または random
+      template: "event_template"  # type: copy の場合はテンプレートフォルダ名
+  - world: "nether_warzone"
+    dimension: "the_nether"
+    schedule:
+      type: "daily"
+      time: "05:00"
+    method:
+      type: "random"
+      seed: -123456789          # 指定なしの場合は完全ランダム
+  - world: "the_end_game"
+    dimension: "the_end"
+    schedule:
+      type: "once"
+      datetime: "2025-05-10 07:00"
+    method:
+      type: "random"
+      seed: null
+
+backup:
+  enabled: true
+  folder: "backups"
+
+messages:
+  remake_start: "&e[System] &f{world}（{dimension}）のリメイクを開始します。"
+  remake_done: "&a[System] &f{world}（{dimension}）のリメイクが完了しました！"
